@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О проекте</title>
+</head>
+<body>
+    <h1>О проекте</h1>
+
+    <nav>
+        <a href="{% url 'catalog:index' %}">Главная</a> |
+        <a href="{% url 'catalog:courses' %}">Курсы</a> |
+        <a href="{% url 'catalog:authors' %}">Авторы</a> |
+        <a href="{% url 'catalog:info' %}">О проекте</a>
+    </nav>
+
+    <hr>
+
+    <p>
+        Каталог образовательных курсов, разработанный
+        с использованием Django.
+    </p>
+
+    <p>
+        На сайте представлены курсы и информация
+        об их авторах.
+    </p>
+</body>
+</html>

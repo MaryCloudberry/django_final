@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ author.name }}</title>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url 'catalog:index' %}">Главная</a> |
+        <a href="{% url 'catalog:courses' %}">Курсы</a> |
+        <a href="{% url 'catalog:authors' %}">Авторы</a> |
+        <a href="{% url 'catalog:info' %}">О проекте</a>
+    </nav>
+
+    <hr>
+
+    <h1>{{ author.name }}</h1>
+
+    <p>
+        <strong>Должность:</strong> {{ author.title }}
+    </p>
+
+    <h2>Курсы автора</h2>
+
+    {% for course in courses %}
+        <h3>
+            <a href="{% url 'catalog:course_detail' course.id %}">
+                {{ course.title }}
+            </a>
+        </h3>
+
+        <p>{{ course.description }}</p>
+    {% empty %}
+        <p>У этого автора пока нет курсов.</p>
+    {% endfor %}
+
+    <p>
+        <a href="{% url 'catalog:authors' %}">
+            ← Вернуться к списку авторов
+        </a>
+    </p>
+
+</body>
+</html>
